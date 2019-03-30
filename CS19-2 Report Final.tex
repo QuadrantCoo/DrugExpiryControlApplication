@@ -1,0 +1,384 @@
+\documentclass[12pt, a4paper]{report}
+
+\usepackage[pdftex]{graphicx} %for embedding images
+
+\usepackage{url} %for proper url entries
+
+\usepackage[utf8]{inputenc}
+
+% Start the document
+\begin{document}
+
+\pagenumbering{roman} %numbering before main content starts
+
+%\input{tex/title.tex}
+%titlepage
+
+\thispagestyle{empty}
+\begin{center}
+
+%\includegraphics[width=100mm]{maklogo.jpg}\\%\\[0.1in]
+
+\vspace{3em}%
+
+% Title
+
+\Large \textbf {DRUGS EXPIRY MONITORING AND CONTROL SYSTEM}\\%\\[0.5in]
+
+\vspace{1em}%
+
+\normalsize by \\%
+
+\vspace{1em}
+
+\textup{\small {\bf CS 19-2}\\}
+
+ \vspace{1em}%
+
+{\bf Department of Computer Science \\ School of Computing \& Informatics Technology}\\[0.5in]
+
+
+\paragraph*{A Project Report Submitted to the \\School of Computing and Informatics Technology}
+\paragraph*{In Partial Fulfilment of the requirements for the\\ Award of the Degree of Bachelor of Science in Computer Science\\of Makerere University}
+
+        \vspace{1in}
+
+% Submitted by
+
+\normalsize {\bf Supervisor:} \\
+
+
+Dr. John Ngubiri\\
+
+\vspace{1em}
+
+Department of Computer Science\\
+
+School of Computing \& Informatics Technology \\
+
+% \vspace{1em}
+
+\url{ngubiri@cis.mak.ac.ug} Tel: $+256414540628$
+
+\vfill
+
+% Bottom of the page
+
+May, 2019
+
+\end{center}
+
+%declaration
+\addcontentsline{toc}{chapter}{Declaration}
+
+\chapter*{Declaration}
+
+We Group CS 19-2 do hereby declare that this Project Report is original and has never been published and/or submitted for any other degree award to any University except it is the first of its kind to be submitted to the School of Computing and Informatics Technology, Makerere University.
+
+
+
+\begin{table}[!ht]
+
+\centering
+
+\resizebox{\textwidth}{!}{%
+
+\begin{tabular}{|l|l|l|l|}
+
+\hline
+
+\textbf{\#} & \textbf{Names} & \textbf{Registration Number} & \textbf{Signature} \\ \hline
+
+1 & Ntambi Isaac & 16/U/10485/PS & \\ \hline
+
+2 & Kyeswa Lutimba Ivan & 16/U/512 & \\ \hline
+
+3 & Akol Sharon Nora & 16/U/74 & \\ \hline
+
+4 & Namulinda Hellen & 16/U/900 & \\ \hline
+
+\end{tabular}%
+
+}
+
+\end{table}
+
+\vspace{1.0in}
+
+\noindent
+
+Date: \\
+
+-----------------------------------------------------------------------------------
+
+\newpage
+
+%approval.
+\addcontentsline{toc}{chapter}{Approval}
+
+\chapter*{Approval}
+
+This Project Report has been submitted for examination with the approval of our supervisor.
+
+
+\vspace{1.0em}
+
+\noindent
+
+Signed: \\
+
+-----------------------------------------------------------------------------------\\
+
+Date: \\
+
+-----------------------------------------------------------------------------------\\
+
+
+\vspace{2.0em}
+
+
+\noindent
+
+Dr. John Ngubiri \\
+
+Department of Computer Science\\
+
+School of Computing \& IT\\
+
+College of Computing \& IS\\
+
+Makerere University\\
+
+\emph{ngubiri@cis.mak.ac.ug}
+
+\newpage
+
+%dedication
+\addcontentsline{toc}{chapter}{Dedication}
+
+\chapter*{Dedication}
+
+We dedicate this report to the Almighty God without whom we can do nothing.
+
+We further dedicate it to our parents and guardians for their unceasing and selfless support throughout our stay in this university.
+
+\newpage
+
+%acknowledgement
+\addcontentsline{toc}{chapter}{Acknowledgement}
+
+\chapter*{Acknowledgement}
+
+We are deeply indebted to our project supervisor Dr. John Ngubiri whose unlimited steadfast support and inspirations have made this project a great success. In a very special way, we thank him for every support he has rendered unto us to see that we succeed in this challenging study.
+
+Special thanks go to our friends and families who have contained the hectic moments and stress we have been through during the course of the research project.
+
+We thank the school for giving us the grand opportunity to work as a team which has indeed promoted our team work spirit and communication skills. We also thank the individual group members for the good team spirit and solidarity.
+
+\newpage
+
+%abstract
+\addcontentsline{toc}{chapter}{Abstract}
+
+\chapter*{Abstract}
+
+\newpage
+
+ \tableofcontents
+
+\newpage
+
+\listoffigures
+
+\newpage
+
+\listoftables
+
+\newpage
+
+%list of Abbreviations
+\addcontentsline{toc}{chapter}{List Of Abbreviations}
+
+\chapter*{List Of Abbreviations}
+
+\newpage
+
+\pagenumbering{arabic} %reset numbering to normal for the main content
+
+%\input{tex/introduction.tex}
+
+ \chapter{Introduction}
+
+
+\section{Background}
+
+Last year, Ministry of health destroyed between 1200 to 1500 tons of expired drugs, worth billions of shillings. The exercise saw National Medical Stores picking expired drugs from a total of 6619 government and private non-profit facilities across the country. The expiry of medicines in the supply chain is a serious threat to the already constrained access to drugs in developing countries [2]. The government authorized the National Drug Authority (NDA) to spend Shs960 millions to destroy 1,500 metric tons of expired human and veterinary medicines. Health Minister Jane Ruth Aceng gave a nod after NDA board chairman, Dr Medard Bitekyerezo, on March 28, 2018 sought authorization for the agency to re-allocate money from its 2017/18 budget to incinerate pharmaceutical waste from public, private and private-not-for-profit health facilities [3]. Mr. Moses Kamabare, the general manager of the National Medical Store (NMS) said while there have been cases of drug stock outs, other drugs are also getting expired all the time. He was quoted saying, “We do not know which items are expired and what volume is expired. We expect that when we pick these items from the health facilities, we shall possibly have an idea of the different types of drugs that have expired.” [2] 
+
+
+\section{Problem Statement}
+This project aims at improving tracking of expiry of drugs that are supplied with in Uganda. National Drug Authority (NDA), National Medical Stores (NMS) and Joint Medical Stores (JMS) have established systems and procedures to accomplish their functions over the years but has fallen short of ways to reduce the quantity of drugs that expire within the countries boundaries. Furthermore, there are no specified guidelines on how to ascertain the quantity and location of expired drugs in the country. Recently they had to appeal to local distributers to hand over the expired products to the District Health Officers (DHOs) process that took Shs960 million – an amount we believe is too much. With this project, drug distribution will be a transparent process and tracking of extent of expiry and planning of ways to reduce expiry rates, an easy venture. It will be easy to track the life span of a supplied drug as well its extent of distribution in the country in real time. 
+
+\section{Main Objective}
+
+The major objective of the study was to reduce the quantity of drugs that expire within Uganda and provide a clear understanding of the extent of drug expiry within the country at any time. 
+
+\subsection{Specific Objectives}
+
+The specific objectives of the study were: 
+
+\begin{itemize}
+
+\item[i.] To track all fundamental transaction involving exchange of drugs allover Uganda.
+
+\item[ii.] To map all locations that have drug in the country.
+
+\item[iii.] To keep track of the expiry dates of drugs no matter how many hands they go through.
+
+\item[iv.] To provide functions that can aid in drug distributions planning and a data management system for analysis and research.
+
+\end{itemize}
+
+
+\section{Scope of the study}
+
+This project limited its self to drugs that were identified to be expiring most and these include antivirals like ARVs for HIV-positive adults, niverapine syrup for babies exposed to HIV/ Aids, aluvia syrup for HIV-positive babies and antimalarials like lumartem, antibiotics like amoxicillin, and paracetamol.
+
+It was also limited to public health facilities and private not for profits hospitals which are NMS distributes drugs to.
+\section{Significance of the study}
+
+The proposed system will provide the following advantages:
+
+There will be clear understanding of the extent of distribution of each specified type of drug and a better estimate of the extent of expiry of each specific drug.  
+
+There will also be functions in the system that will aid in drug distribution pattern, planning and optimization of supply stocks.  
+
+It will be easy to identify the health units with expired drugs and the quantity they are estimated to possess.  
+
+The data that will be collected from the distribution patterns and exchange of drugs from distributers to several public health centres will be helpful in making further research and will contribute to National Health statistics.  
+
+Since the system will be in place to detect the expiry dates, this information will be used to re-allocate the distribution to deter the expiry before it happens. 
+
+%\input{tex/literature.tex}
+
+\chapter{Literature Review}
+
+
+\section{Introduction}
+
+The main purpose of this chapter is to present some general consensus on the theoretical support and previous empirical studies on monitoring drugs distribution and controlling expiry of drugs.  In this respect, the chapter provides some of the ways that are used to control expiry of drugs and especially how drugs expiry is currently being controlled in Uganda.
+
+\section{Drugs Distribution Chain in Uganda by NMS}
+NMS carries out the following major activities to perform its role; 
+Customer Delivery, Supply Chain Planning, Receipt and Storage of Supplies, Warehouse Management, Inventory Management, Customer Order Processing and Delivery, Transport, Route Planning. [6] Before delivering drugs, NMS designs distribution schedules for each financial year that it follows to deliver drugs to the various public health facilities. This however, does not take into account the changing consumption rates by each health facility. 
+
+In need to capture customer feedback NMS developed an NMS Smart Care which is a set of tools that offers different channels through which Public Health Facilities and the general public are able to send feedback to NMS based on their convenience. NMS Smart Care further gives NMS visibility on deliveries made in real time, when the delivery was made, who received the supplies and if there are any issues related to the delivery. Below are the channels that can be used to access NMS Smart Care:
+
+\begin{itemize}
+
+\item NMS Smart Care APP (found in Google Play Store for android devices) and online 
+\url{http://smartcare.nms.go.ug for sending feedback to NMS}
+
+\item NMS LMD APP (Found in Google Play Store for android devices) and online \url{http://dmt.nms.go.ug/} to know where NMS is delivering in real time.  
+
+\item SMS to 6090 (SMS to this short code is free of charge) 
+
+\item Live Chat  \url{http://www.nms.go.ug}  
+\end{itemize}
+
+\subsection{Current Drugs Expiry monitoring in Uganda}
+In 2012 the Uganda Ministry of Health put in place the national guidelines on the redistribution and prevention of expiry and handling of medicines and health supplies to provide a harmonized framework for the redistribution and prevention of the expiry of medicines in Uganda. 
+
+Medical supplies do have limited shelf lives. Standard treatment guidelines, laboratory testing protocols, and morbidity patterns change at times, therefore it can be expected that some medicines may not be used before expiry. Health workers can limit stock expiry by closely monitoring expiry dates and taking the appropriate action to redistribute stock when necessary. This part describes the procedures for redistribution of medicines and health supplies and how to write off expired supplies.[1] 
+
+As a general rule, any item expiring in three months’ time is short dated. However, some slow-moving items can also be included in that category, for example praziquantel tablets, or items which are only available in large units. At times, it is obvious even before three months prior to the expiry date that the item will not be used. [1] When doing the monthly physical count, you will notice items that are short dated. It is extremely important to take immediate action to avoid any item’s expiration on the shelf. Allowing three months for redistribution is a short time, and the process must begin immediately.  
+
+\subsubsection*{AT THE HEALTH FACILITY}  
+Activities taken at the health facility include; 
+\begin{itemize}
+\item Make a note of any item expiring within three months (or longer, for slow-moving items) 
+\item Calculate how many units will be issued and used by your facility before the item expires. 
+\end{itemize}
+From that figure you can see how much you need to redistribute  
+
+Steps to take include the following;  
+\begin{itemize}
+\item{1. Alert the HSD(Health Sub-district) or the district about any stock that cannot be used before expiry or that you have too much of.}
+\item{ 2. Hand over the items to the district or HSD supervisors for redistribution.} 
+Be sure to fill in a requisition and issue voucher to go with the stock and keep a copy for the facility. 
+A member of the health unit management committee should be present during the handover. 
+\item{3. On the stock card, fill in under the losses and adjustments column the quantity sent to the district store and note the reason.}  
+\end{itemize}
+
+\subsubsection*{AT THE District Health Office(DHO)}
+
+The DHOs should coordinate the redistribution:
+\begin{itemize}
+\item Make an extra effort to redistribute excess supplies received by some facilities following kit supply. Although the kit is revised regularly, excess stock will occur and often it will be the same items that are overstocked.  
+\item • Check with other districts that might make use of the short-dated or excess stock. 
+\end{itemize}
+
+The solutions and efforts that are being taken to reduce the expiry rate are still insufficient as seen below; 
+When asked, Moses Kamabare, the General Manager National Medical Stores (NMS), an entity that is mandated to procure and supply drugs to public health facilities across the country said they were not sure of what exact medicines had expired as they were yet to collect them from facilities. "We are not sure," he said, "They might be supplies like syringes, gauze or gloves. Medicines expire because they have an expiry date. Everything that has an expiry date is prone to expire and we just can't have 100 percent consumption." [5]. 
+
+Some of the medicines that were found expired included a HIV drug - Nevirapine syrup that had been supplied to Komamboga Health Facility in October 2016. Of the 810 bottles supplied, 599 bottles had expired before use by November 2016. Also, according to the report, NMS had supplied 36 units of a laboratory reagent HumaCount to Kisugu Health Center III but only one unit was used and the rest expired a few months later [5]. The above information portrays that less of the details is being tracked by the distributors due to shortages of drugs that occur at some health centres yet others have excess which after expires in bulks. The sole individuals responsible for knowing the expiry details of the drugs supplied are not actually sure about such details and measures to undertake. 
+
+\section{Related Systems}
+\subsection{ SMS based drug monitoring systems}
+The Novartis Company developed the SMS-based system for anti-malarial drugs in sub-Saharan Africa. The technology was developed to prevent stock-out of antimalarial drugs in remote areas by taking advantage of the present availability of mobile phones network coverage even in rural areas. The system automatically sends weekly SMS text messages to mobile phones at public health facilities requesting information on their updated stock levels. The major challenge for the effectiveness of this system is that the remote health centers are served by the district hospital where the automated drug monitoring and ordering system is not in place. Thus, even if the SMS from the remote health center will be received will be difficult to be processed since even the district level can get out of stock without notification. This can be considered as a call up on development of information system for drug monitoring and management at the hospital level. [9] 
+
+
+
+\subsection{Failure Mode Effects Analysis (FMEA) Tool}
+
+For year 2010, total value of drugs disposed was RM 8,575.50 due to expired or spoiled items returned from wards. The main reason was due to the failure of nurses to check the stock regularly. They only do the checking upon ordering of new stock from Pharmacy department. FMEA tool was selected by the Management to solve this problem. [8] In this system, pharmacy staff will go to the wards once a month to check stock of drugs kept at ward level. After the implementation of the new process, RPN was calculated again and it was found that the value was between 3 to 8 which was considered as low. Monitoring of compliance was done using ward check form based on storage condition, par level, labeling and packaging and non- conformances for spoilt and expired items. Compliance in term of drug storage was 100 percent and labeling compliance was 97.2 percent.[8]  
+
+However , the  compliance  on  par  level  was  only  81.9 percent  and  in  term  of  expiry compliance  was  96.5 percent.  Based  on  FMEA  ,  it  was  found  that  the  main  reason  for  expired/spoiled drugs  is  because  of  insufficient  checking  of  ward  stocks.  Corrective  actions  are  ongoing  to improve  further  the  process  of  supply  by  re date  validity,  the designin g  a  new  form  of  ward  checking,  remodifying  indenting  process  of  ward  stocks  via  the  HITS  system  and  conducting  training  and awareness.  After  implementing  the  new  system,  the  value  of  drug  disposed  was  RM  3,060.78 which  was  94 percent lower.  Therefore , [8] the  study has  shown  remarkable  results  in  reducing  the amount  of  drug  disposal  which  will  help  the  organization  to  reduce  the  risk  to  patients  and avoid wastage.[8] 
+\newpage
+
+%project
+
+ \chapter{Project Description}
+
+\section{Design and Method}
+
+\subsection{Methodology}
+
+\subsection{Design}
+
+\section{Implementation}
+
+\section{Results and Evaluation}
+
+\subsection{Results}
+
+\subsection{Evaluation}
+
+\newpage
+
+%future-work
+ \chapter{Future Work}
+
+\newpage
+%conclusions and recommendations
+
+ \chapter{Conclusions and Recommendations}
+
+\section{Conclusions}
+
+\newpage
+\section{Recommendations}
+
+\newpage
+%references
+\addcontentsline{toc}{chapter}{References}
+
+\chapter*{References}
+
+\newpage
+%appendices
+\addcontentsline{toc}{chapter}{Appendices}
+
+\chapter*{Appendices}
+
+% End of the document
+\end{document}
